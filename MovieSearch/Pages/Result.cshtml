@@ -1,0 +1,61 @@
+﻿@page
+@model ResultModel
+@{
+    ViewData["Title"] = @Model.title;
+}
+<h2>@ViewData["Title"]</h2>
+
+<form method="get" action="/Search" runat="server" border="0" cellpadding="0" cellspacing="0" style="width:100%;float:right">
+    <div class="input-group">
+        <input type="submit" value="Back" class="btn btn-primary" style="background:black" />
+    </div>
+</form>
+
+<h2 style="color:white;">.</h2>
+
+<style>
+
+    #card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        align-self: center;
+    }
+
+    .card:hover {
+        box-shadow: 0 8px 44px 0 rgba(0,0,0,0.2);
+    }
+
+    .container {
+        padding: 2px 16px;
+    }
+</style>
+
+
+<div class="card" style="float:left">
+    <img src=@Model.moviePosterLink alt=@Model.title style="width:100%;float:left">
+</div>
+
+<table border="0" cellpadding="0" cellspacing="0" style="width:60%;float:right">
+        <tr>
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Release Date</th>
+            <th>Language</th>
+        </tr>
+        <tr>
+            <td>@Model.title</td>
+            <td>@Model.rating/10</td>
+            <td>@Model.movieReleaseDate</td>
+            <td>@Model.language</td>
+        </tr>
+</table>
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="width:60%;float:right">
+    <tr>
+        <th>Overview</th>
+    </tr>
+    <tr>
+        <td>@Model.movieBio</td>
+    </tr>
+</table>
